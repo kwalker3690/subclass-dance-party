@@ -72,7 +72,7 @@ MakeDancer.prototype.collideCheck = function(){
 }
 
 MakeDancer.prototype.audio = function(){
-  var audioHTML = '<audio src="jump.mp3" autoplay></audio>';
+  var audioHTML = '<audio src="src/jump.mp3" autoplay></audio>';
   $('body').append(audioHTML)
 }
 
