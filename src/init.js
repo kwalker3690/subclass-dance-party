@@ -1,6 +1,7 @@
 $(document).ready(function(){
   window.dancers = [];
 
+
   $(".addDancerButton").on("click", function(event){
     /* This function sets up the click handlers for the create-dancer
      * buttons on index.html. You should only need to make one small change to it.
@@ -26,7 +27,12 @@ $(document).ready(function(){
       $("body").width() * Math.random(),
       Math.random() * 1000
     );
-    $('body').append(dancer.$node);
+    $('body').append(dancer.$node).trigger('mouseover');
+    $('.dancer').on('mouseover', function(event){
+      dancer.audio();
+      dancer.bounce();
+      event.stopImmediatePropagation()
+    });
     window.dancers.push(dancer)
   });
 
@@ -46,7 +52,7 @@ $(document).ready(function(){
       return text;
     })
 
-  })
+  });
 
 });
 

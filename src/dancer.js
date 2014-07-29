@@ -55,7 +55,7 @@ MakeDancer.prototype.collideCheck = function(){
     for(var k=0; k<positions.length; k++){
       // console.log('position' + positions[j]['top'] + " " + positions[k]['top'])
       if(j !== k){
-        if(positions[j]['top']/20 === positions[k]['top']/20){
+        if(positions[j]['top']/20 === positions[k]['top']/20 || positions[j]['left']/20 === positions[k]['left']/20){
           $($dancers[j]).css({"border-color": this.getRandomColor()});
           $($dancers[k]).css({"border-color": this.getRandomColor()});
           $('body').append(ouchSpan);
@@ -68,11 +68,15 @@ MakeDancer.prototype.collideCheck = function(){
       }
     }
   }
-
-  // console.log(positions)
   setTimeout(this.collideCheck.bind(this), 100);
-  // while(true){
+}
 
-  // }
+MakeDancer.prototype.audio = function(){
+  var audioHTML = '<audio src="jump.mp3" autoplay></audio>';
+  $('body').append(audioHTML)
+}
+
+MakeDancer.prototype.bounce = function(){
+  this.$node.animate({'border-width':'200px'}, 'fast').animate({'border-width':'10px'}, 'fast')
 }
 
