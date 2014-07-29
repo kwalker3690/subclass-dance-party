@@ -4,7 +4,8 @@ var MakeDancer = function(top, left, timeBetweenSteps){
   this.left = left;
   this.timeBetweenSteps = timeBetweenSteps;
   this.$node = $('<span class="dancer"></span>');
-  this.step()
+  this.step();
+  this.collideCheck()
 };
 
 MakeDancer.prototype.step = function(){
@@ -31,6 +32,47 @@ MakeDancer.prototype.setLeft = function(){
 MakeDancer.prototype.free = function(){
   this.$node.removeClass('zero')
 }
-// now that we have defined the dancer object, we can start setting up important parts of it by calling the methods we wrote
-// this one sets the position to some random default point within the body
-// MakeDancer.prototype.setPosition(this.top, this.left);
+
+MakeDancer.prototype.getRandomColor = function() {
+    var letters = '0123456789ABCDEF'.split('');
+    var color = '#';
+    for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+}
+
+MakeDancer.prototype.collideCheck = function(){
+  var $dancers = $('.dancer')
+  var positions = [];
+  for(var i = 0; i < $dancers.length; i++){
+    positions.push({'top': $dancers[i].offsetTop, 'left': $dancers[i].offsetLeft})
+  }
+
+  var ouchSpan = '<span class="ouch">"Ouch!"</span>'
+
+  for(var j = 0; j < positions.length; j++){
+    for(var k=0; k<positions.length; k++){
+      // console.log('position' + positions[j]['top'] + " " + positions[k]['top'])
+      if(j !== k){
+        if(positions[j]['top']/20 === positions[k]['top']/20){
+          $($dancers[j]).css({"border-color": this.getRandomColor()});
+          $($dancers[k]).css({"border-color": this.getRandomColor()});
+          $('body').append(ouchSpan);
+          $('.ouch').offset({top: positions[j]['top'], left: positions[k]['left']})
+          if($('.ouch')){
+            $('.ouch').toggle();
+          }
+          console.log('hit')
+        }
+      }
+    }
+  }
+
+  // console.log(positions)
+  setTimeout(this.collideCheck.bind(this), 100);
+  // while(true){
+
+  // }
+}
+

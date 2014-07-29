@@ -44,6 +44,11 @@ body, a:link, a:visited, a:active{
   border-color:transparent;
 }
 
-.moving-dancer {
-  position:relative;
+.conscious-dancer {
+  border-width: 100px;
+}
+
+.ouch {
+  font-size: 200px;
+  color: orange;
 }
