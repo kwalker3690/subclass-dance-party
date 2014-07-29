@@ -5,6 +5,7 @@ body{
   margin: 0px;
   background-color:#444;
   font-size: 18px;
+  background: url('src/images/dogs.gif');
 }
 body, a:link, a:visited, a:active{
   color: lightblue;
@@ -31,4 +32,18 @@ body, a:link, a:visited, a:active{
 
 .color-dancer {
   border-radius: 0px;
+}
+
+.zero {
+  left:0 !important;
+}
+
+.dog-dancer {
+  background: url('src/images/puppy.jpg') no-repeat center center;
+
+  border-color:transparent;
+}
+
+.moving-dancer {
+  position:relative;
 }

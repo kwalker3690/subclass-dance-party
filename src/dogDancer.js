@@ -1,4 +1,4 @@
-var MakeGrowingDancer = function(top, left, timeBetweenSteps){
+var DogDancer = function(top, left, timeBetweenSteps){
   MakeDancer.call(this);
   this.top = top;
   this.left = left;
@@ -11,11 +11,11 @@ var MakeGrowingDancer = function(top, left, timeBetweenSteps){
 
 
 };
-MakeGrowingDancer.prototype = Object.create(MakeDancer.prototype);
-MakeGrowingDancer.prototype.constructor = MakeGrowingDancer;
+DogDancer.prototype = Object.create(MakeDancer.prototype);
+DogDancer.prototype.constructor = DogDancer;
 
-MakeGrowingDancer.prototype.oldStep = MakeDancer.prototype.step;
-MakeGrowingDancer.prototype.step = function(){
+DogDancer.prototype.oldStep = MakeDancer.prototype.step;
+DogDancer.prototype.step = function(){
 
   this.oldStep();
   // call the old version of step at the beginning of any call to this new version of step
@@ -27,5 +27,5 @@ MakeGrowingDancer.prototype.step = function(){
   // See http://api.jquery.com/category/effects/ for this and
   // other effects you can use on a jQuery-wrapped html tag.
   this.$node.animate(borderStyle, 'slow');
-  this.$node.addClass("growing-dancer")
+  this.$node.addClass( "dog-dancer")
 };

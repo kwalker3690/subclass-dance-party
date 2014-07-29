@@ -27,6 +27,26 @@ $(document).ready(function(){
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer)
   });
+
+  $(".line-up").on('click', function(event){
+    $(this).text(function(j, text){
+      if(text==="LINE UP"){
+        for(var i =0; i<window.dancers.length; i++){
+          window.dancers[i].setLeft()
+        }
+        text = "DISPERSE"
+      }else{
+        for(var i =0; i<window.dancers.length; i++){
+          window.dancers[i].free()
+        }
+        text = "LINE UP"
+      }
+      return text;
+    })
+
+  })
+
 });
 
