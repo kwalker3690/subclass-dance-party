@@ -4,6 +4,7 @@ var MakeDancer = function(top, left, timeBetweenSteps){
   this.left = left;
   this.timeBetweenSteps = timeBetweenSteps;
   this.$node = $('<span class="dancer"></span>');
+  this.audioHTML = '<audio src="src/jump.mp3" autoplay></audio>';
   this.step();
   this.collideCheck()
 };
@@ -72,8 +73,7 @@ MakeDancer.prototype.collideCheck = function(){
 }
 
 MakeDancer.prototype.audio = function(){
-  var audioHTML = '<audio src="src/jump.mp3" autoplay></audio>';
-  $('body').append(audioHTML)
+  $('body').append(this.audioHTML)
 }
 
 MakeDancer.prototype.bounce = function(){
