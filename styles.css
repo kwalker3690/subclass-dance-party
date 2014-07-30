@@ -1,3 +1,13 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+
+@font-face {
+  font-family : 'Font-Awesome';
+  src: url('src/font-awesome/fontawesome-webfont.eot');
+  src: url('src/font-awesome/fontawesome-webfont.woff');
+  src: url('src/font-awesome/fontawesome-webfont.scvg');
+  src: url('src/font-awesome/fontawesome-webfont.ttf');
+}
+
 body, html{
   height:100%;
 }
@@ -8,15 +18,59 @@ body{
   background: url('src/images/dogs.gif');
 }
 body, a:link, a:visited, a:active{
-  color: lightblue;
+  color: white;
+  font-family: 'Oswald', Sans-serif;
+  text-decoration:none;
+  overflow:hidden;
+  text-align:center;
 }
-.title, .addDancerButton{
+.title, .addDancerButton, .line-up{
   padding:5px 12px;
-  float:right;
+  display:block;
 }
-.topbar{
-  height:32px;
+
+a.addDancerButton, a.line-up{
+  background-color:white;
+  color:#555;
+  margin: 10px 15px;
+  border-radius:15px;
+  text-align:center;
+  text-transform:uppercase;
+  font-size:14px;
+  border: 3px solid white;
+  transition:background-color .3s, color .3s, border-radius .3s;
+}
+
+i{
+  padding: 0 5px;
+}
+
+.addDancerButton:hover {
+  background-color:transparent;
+  color:white;
+  border-radius:0;
+  transition:background-color .3s, color .3s, border-radius .3s;
+
+}
+a.line-up {
+  color:#E80C7A;
+  transition:background-color .3s, color .3s, border-radius .3s;
+}
+a.line-up:hover {
+  background-color:#E80C7A;
+  color:white;
+  border-radius:0px;
+  transition:background-color .3s, color .3s, border-radius .3s;
+}
+
+.navbar{
+  position:absolute;
+  right:0;
+  top:0;
+  height:100%;
+  width:250px;
   background-color: #555;
+  z-index:100;
 }
 .title{
   background-color: #777;
